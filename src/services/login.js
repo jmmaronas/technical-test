@@ -8,6 +8,6 @@ export const login = async (credentials) => {
 }
 
 export const signUp = async (newUser) => {
-    const response = await axios.post(baseUrl + '/sign-up', newUser)
-    return response
+    const {data} = await axios.post(baseUrl + '/sign-up', newUser)
+    return data
 }

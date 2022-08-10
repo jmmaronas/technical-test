@@ -1,4 +1,7 @@
-.App {
-  text-align: center;
+::-webkit-scrollbar{
+  display: none;
 }
 
+#table-clients{
+  font-size: smaller;
+}

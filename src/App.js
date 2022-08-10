@@ -1,19 +1,26 @@
 import './App.css'
-import LoginForm from './components/LoginForm.js'
+import Home from './components/Home.js';
 import NavBar from './components/NavBar.js';
-import SignUpForm from './components/SingUpForm.js';
-import UsersList from './components/UsersList';
+import LoginForm from './components/login/LoginForm.js'
+import SignUpForm from './components/login/SingUpForm.js';
+import UsersLists from './components/user/UsersLists.js';
 import { AuthProvider } from './context/AuthProvider';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <NavBar/>
-      <AuthProvider>
-        <LoginForm />
-        <SignUpForm />
-        <UsersList />
-      </AuthProvider>
+      <BrowserRouter>
+        <AuthProvider>
+        <NavBar />
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/login' element={<LoginForm />} />
+            <Route path='/signup' element={<SignUpForm />} />
+            <Route path='/userslists' element={<UsersLists />} />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     </>
   )
 }

@@ -1,7 +1,6 @@
 export default function User({user}) {
     return (
-        <tr>
-            <td>1</td>
+        <tr>            
             <td>{user.name}</td>
             <td>{user.surname}</td>
             <td>{user.email}</td>
