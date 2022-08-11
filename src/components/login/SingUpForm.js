@@ -20,6 +20,7 @@ export default function SignUpForm() {
             setName('')
             setSurname('')
             setError(false)
+            return
         } catch (err) {
             setError(true)
         }
@@ -27,7 +28,7 @@ export default function SignUpForm() {
     return (
         <div className="container">
             <h1 className='text-center  fst-italic text-success my-3'>Crear usuario</h1>
-            <Form onSubmit={handleSignUp} className='container col-md-6 m-auto'>
+            <Form onSubmit={handleSignUp} className='container col-md-6 m-auto border rounded shadow p-3 bg-light'>
                 <Form.Group className="mb-3" controlId="formSignupUsername">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
@@ -35,7 +36,7 @@ export default function SignUpForm() {
                         value={email}
                         name='Username'
                         placeholder="Enter email"
-                        onChange={({ target }) => setEmail(target.value)}
+                        onChange={({ target }) => setEmail(target.value.trim())}
                         required
                     />
                     {

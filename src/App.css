@@ -1,7 +1,8 @@
 ::-webkit-scrollbar{
   display: none;
 }
-
-#table-clients{
-  font-size: smaller;
+@media screen and (max-width: 992px) {
+  #table-clients{
+    font-size: smaller;
+  } 
 }

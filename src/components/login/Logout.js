@@ -4,7 +4,7 @@ export default function Logout( { handleLogout } ) {
   
   return (
     <>
-      <Button onClick={handleLogout} variant="outline-danger">Logo Out</Button>{' '}
+      <Button onClick={handleLogout} variant="outline-danger" size='sm'>Logo Out</Button>{' '}
     </>
   );
 }

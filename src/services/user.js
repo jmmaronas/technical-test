@@ -4,9 +4,9 @@ const baseUrl = 'http://51.38.51.187:5050/api/v1/users'
 export const getAll = async (token) => {
     return await axios.get(baseUrl, token)
 }
-
+// getMe-create-update-del no estan testeadas
 export const getMe = async (token) => {
-    return await axios.get(baseUrl, token)
+    return await axios.get(`${baseUrl}/me`, token)
 }
 
 export const create = async (credentials) => {

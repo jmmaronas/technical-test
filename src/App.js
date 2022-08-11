@@ -3,7 +3,7 @@ import Home from './components/Home.js';
 import NavBar from './components/NavBar.js';
 import LoginForm from './components/login/LoginForm.js'
 import SignUpForm from './components/login/SingUpForm.js';
-import UsersLists from './components/user/UsersLists.js';
+import UsersListsContent from './components/user/UsersListContent.js';
 import { AuthProvider } from './context/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ function App() {
             <Route path='/' element={<Home/>} />
             <Route path='/login' element={<LoginForm />} />
             <Route path='/signup' element={<SignUpForm />} />
-            <Route path='/userslists' element={<UsersLists />} />
+            <Route path='/userslists' element={<UsersListsContent />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

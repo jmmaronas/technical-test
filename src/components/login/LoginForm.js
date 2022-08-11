@@ -13,12 +13,17 @@ export default function LoginForm() {
 
     const handleLogin = async (event) => {
         event.preventDefault()
-        try {
+        try {            
             const { accessToken } = await login({ email, password })
-            setAuth(accessToken)
+            setAuth({
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            })
             setEmail('')
             setPassword('')
             setError(false)
+            return
         } catch (err) {
             setError(true)
         }
@@ -26,7 +31,7 @@ export default function LoginForm() {
     return (
         <div className="container">
             <h1 className='text-center fst-italic text-primary my-3'>Inicio de sesion</h1>
-            <Form onSubmit={handleLogin} className='container col-md-6 m-auto'>
+            <Form onSubmit={handleLogin} className='container col-md-6 m-auto border rounded shadow p-3 bg-light' >
                 <Form.Group className="mb-3" controlId="formLoginUsername">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
@@ -34,7 +39,7 @@ export default function LoginForm() {
                         value={email}
                         name='Username'
                         placeholder="Enter email"
-                        onChange={({ target }) => setEmail(target.value)}
+                        onChange={({ target }) => setEmail(target.value.trim())}
                     />
                 </Form.Group>
 
@@ -48,7 +53,7 @@ export default function LoginForm() {
                         onChange={({ target }) => setPassword(target.value)}
                     />
                     {error &&
-                         <Form.Text className="text-danger">
+                        <Form.Text className="text-danger">
                             Usuario y/o contraseña incorrectos
                         </Form.Text>
                     }
